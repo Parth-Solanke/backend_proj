@@ -6,6 +6,7 @@
 import connectDB from "./db/index.js";
 import dotenv from "dotenv";
 import dns from "dns";
+import { app } from "./app.js";
 
 dns.setDefaultResultOrder("ipv4first");
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
@@ -16,7 +17,15 @@ dotenv.config({
     quiet: true
 });
 
-connectDB();
+connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000 , () => {
+        console.log(`server is running at port : ${process.env.PORT}`);
+    })
+})
+.catch((err) => {
+    console.log("mongodb connection failed !!!",err);
+})
 
 
 
