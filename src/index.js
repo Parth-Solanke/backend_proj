@@ -1,22 +1,29 @@
 // require('dotenv').config({path:'./env'})
-import mongoose from "mongoose";
-import { DB_NAME } from "./constants.js";
 
-/*
+
+
+
 import connectDB from "./db/index.js";
-
 import dotenv from "dotenv";
+import dns from "dns";
+
+dns.setDefaultResultOrder("ipv4first");
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 dotenv.config({
-    path: "./.env"
+    path: "C:/backend_projects/back_proj/.env",
+    override: true ,
+    quiet: true
 });
 
-connectDB()
-*/
+connectDB();
 
 
 
 
+/*
+import mongoose from "mongoose";
+import { DB_NAME } from "./constants.js";
 import express from "express";
 const app = express();
 
@@ -38,3 +45,4 @@ const app = express();
         }
     }
 } { }
+*/
